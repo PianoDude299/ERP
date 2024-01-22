@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Site {{ Site }} Local Expenditure - ALU Structures</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="location.href='#'">Local Expenditure</button>
+        <button class="nav-button" onclick="location.href='/m_material_purchase'">Material Purchase</button>
+        <button class="nav-button" onclick="location.href='/m_report'">Report</button>
+        <button class="nav-button" onclick="location.href='/m_labour'">Labour</button>
+        <button class="nav-button" onclick="location.href='/m_staff_salary'">Staff Salary</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Main Heading -->
+        <h1 class="Company_Name">ALU Structures</h1>
+        
+        <!-- Subheading -->
+        <h2 class="Page_Name">Site {{ Site }} Local Expenditure</h2>
+
+        <!-- Company Logo -->
+        <img class="logo" src="{{ url_for('static', filename='company_logo.png') }}" alt="Company Logo">
+
+        <!-- Form for Local Expenditure -->
+        <form method="POST" action="{{ url_for('m_local_expenditure') }}">
+
+            <table>
+                <!-- Date Selection Input -->
+                <tr>
+                    <td><label for="exp-date">Date</label></td>
+                    <td><input type="date" id="exp-date" name="exp-date" required></td>
+                </tr>
+
+                <!-- Activity Input -->
+                <tr>
+                    <td><label for="activity-input">Activity</label></td>
+                    <td><input type="text" id="activity-input" name="activity-input" required></td>
+                </tr>
+
+                <!-- Amount Input -->
+                <tr>
+                    <td><label for="amount-input">Amount</label></td>
+                    <td><input type="text" id="amount-input" name="amount-input" required></td>
+                </tr>
+            
+                <div class="msg">{{ msg }}</div>
+            </table>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="button" type="submit">Submit</button>
+                <button class="button" type="button">Update</button>
+                <button class="button" type="button" onclick="location.href='/view_table/expenditure'">View</button>
+                <button class="button" type="reset">Reset</button>
+                <button class="button" onclick="location.href='/home'">Log Out</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

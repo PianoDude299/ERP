@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Manager Login</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Manager Login</h2>
+        <form method="POST" action="{{ url_for('manager_login') }}">
+            <label for="sitenum">
+            </label>
+            <input type="text" name="sitenum" placeholder="Site Number" id="sitenum" required>
+            <label for="username">
+            </label>
+            <input type="text" name="username" placeholder="Username" id="username" required>
+            <label for="password">
+            </label>
+            <input type="password" name="password" placeholder="Password" id="password" required>
+            <div class="err-msg">{{ msg }}</div>
+            <button type="submit" value="Login" class="button" style="margin-bottom: 10px;">Login</button>
+        </form>
+        <button class="button" onclick="location.href='/home'">Back</button>
+    </div>
+</body>
+</html>

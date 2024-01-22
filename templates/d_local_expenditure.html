@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Local Expenditure - ALU Structures</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="location.href='#'">Local Expenditure</button>
+        <button class="nav-button" onclick="location.href='/d_material_purchase'">Material Purchase</button>
+        <button class="nav-button" onclick="location.href='/d_report'">Report</button>
+        <button class="nav-button" onclick="location.href='/d_manager_accounts'">Managers</button>
+        <button class="nav-button" onclick="location.href='/d_labour'">Labour</button>
+        <button class="nav-button" onclick="location.href='/d_staff_salary'">Staff Salary</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Main Heading -->
+        <h1 class="Company_Name">ALU Structures</h1>
+        
+        <!-- Subheading -->
+        <h2 class="Page_Name">Local Expenditure</h2>
+
+        <!-- Company Logo -->
+        <img class="logo" src="{{ url_for('static', filename='company_logo.png') }}" alt="Company Logo">
+
+        <!-- Form for Material Purchase -->
+        <form method="POST" action="{{ url_for('d_local_expenditure') }}">
+
+            <table>
+            <tr>
+                <td><label for="tid">T_ID</label></td>
+                <td><input type="text" id="tid" name="tid" placeholder="Used for updation only"></td>
+            </tr>
+            <tr>
+                <td><label for="site-num">Site</label></td>
+                <td><input type="text" id="site-num" name="site-num" required></td>
+            </tr>
+
+            <!-- Date Selection Input -->
+            <tr>
+                <td><label for="exp-date">Date</label></td>
+                <td><input type="date" id="exp-date" name="exp-date" required></td>
+            </tr>
+
+            <!-- Activity Input -->
+            <tr>
+                <td><label for="activity-input">Activity</label></td>
+                <td><input type="text" id="activity-input" name="activity-input" required></td>
+            </tr>
+
+            <!-- Amount Input -->
+            <tr>
+                <td><label for="amount-input">Amount</label></td>
+                <td><input type="text" id="amount-input" name="amount-input" required></td>
+            </tr>
+
+            <input type="hidden" id="HiddenField" name="HiddenField" value="1">
+            
+            <div class="msg">{{ msg }}</div>
+            </table>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="button" type="submit">Submit</button>
+                <button class="button" type="submit" onclick="update()">Update</button>
+                <button class="button" type="button" onclick="location.href='/view_table/expenditure'">View</button>
+                <button class="button" type="reset">Reset</button>
+                <button class="button" onclick="location.href='/home'">Log Out</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function update() {
+            var hiddenField = document.getElementById("HiddenField");
+            hiddenField.value = "2";
+        }
+    </script>
+</body>
+</html>

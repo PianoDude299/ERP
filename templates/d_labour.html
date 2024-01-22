@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Labour Details - ALU Structures</title>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="location.href='/d_local_expenditure'">Local Expenditure</button>
+        <button class="nav-button" onclick="location.href='/d_material_purchase'">Material Purchase</button>
+        <button class="nav-button" onclick="location.href='/d_report'">Report</button>
+        <button class="nav-button" onclick="location.href='/d_manager_accounts'">Managers</button>
+        <button class="nav-button" onclick="location.href='#'">Labour</button>
+        <button class="nav-button" onclick="location.href='/d_staff_salary'">Staff Salary</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="padding-top: 200px;">
+        <!-- Main Heading -->
+        <h1 class="Company_Name">ALU Structures</h1>
+        
+        <!-- Subheading -->
+        <h2 class="Page_Name">Labour Details</h2>
+
+        <!-- Company Logo -->
+        <img class="logo" src="{{ url_for('static', filename='company_logo.png') }}" alt="Company Logo">
+
+        <!-- Form for Material Purchase -->
+        <form method="POST" action="{{ url_for('d_labour') }}" id="Form">
+
+            <table>
+            <tr>
+                <td><label for="tid">T_ID</label></td>
+                <td><input type="text" id="tid" name="tid" placeholder="Used for updation only"></td>
+            </tr>
+            <tr>
+                <td><label for="site-num">Site</label></td>
+                <td><input type="text" id="site-num" name="site-num" required></td>
+            </tr>
+
+            <!-- Name Input -->
+            <tr>
+                <td><label for="name-input">Name</label></td>
+                <td><input type="text" id="name-input" name="name-input" required></td>
+            </tr>
+
+            <!-- ID Input -->
+            <tr>
+                <td><label for="empid-input">Employee ID</label></td>
+                <td><input type="text" id="empid-input" name="empid-input" required></td>
+            </tr>
+
+            <!-- Date Selection Input -->
+            <tr>
+                <td><label for="joining-date">Date of Joining</label></td>
+                <td><input type="date" id="joining-date" name="joining-date" required></td>
+
+            <!-- Gender Input -->
+            <tr>
+                <td><label for="gender-input">Gender</label></td>
+                <td style="display: inline-flex;">
+                    <input type="radio" value="Male" name="gender-input" required>Male
+                    <input type="radio" value="Female" name="gender-input" >Female<br>
+                    <input type="radio" value="Other" name="gender-input" >Other
+                </td>
+            </tr>
+
+            <!-- Languages Input -->
+            <tr>
+                <td><label for="languages-input">Languages</label></td>
+                <td style="display: inline-flex;">
+                    <input type="checkbox" value="English" name="languages-input" >English
+                    <input type="checkbox" value="Hindi" name="langugaes-input" >Hindi<br>
+                    <input type="checkbox" value="Tamil" name="languages-input" >Tamil
+                    <input type="checkbox" value="Foreign" name="languages-input" >Foreign
+                </td>
+            </tr>
+
+
+            <!-- Address Input -->
+            <tr>
+                <td><label for="address-input">Address</label></td>
+                <td><textarea type="text" id="address-input" name="address-input" style="font-size: small;" wrap="hard" rows="5" cols="30" required></textarea></td>
+            </tr>
+
+            <!-- Designation Input -->
+            <tr>
+                <td><label for="designation-input">Designation</label></td>
+                <td>
+                    <select id="designation-input" name="designation-input" required style="width: 250px;padding-bottom: 10px;">
+                        <option value=""></option>
+                        <option value="Asst_Manager">Asst. Manager</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Senior_Developer">Senior Developer</option>
+                        <option value="Junior_Developer">Junior Developer</option>
+                        <option value="Trainee">Trainee</option>
+                    </td>
+            </tr>
+            </table>
+            <input type="hidden" id="HiddenField" name="HiddenField" value="1">
+            
+            <div class="msg">{{ msg }}</div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons" style="padding-bottom: 50px;">
+                <button class="button" type="submit">Submit</button>
+                <button class="button" type="submit" onclick="update()">Update</button>
+                <button class="button" type="button" onclick="location.href='/view_table/labour'">View</button>
+                <button class="button" type="reset">Reset</button>
+                <button class="button" onclick="location.href='/home'">Log Out</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function update() {
+            var hiddenField = document.getElementById("HiddenField");
+            hiddenField.value = "2";
+            
+            document.getElementById("Form").submit();
+        }
+    </script>
+</body>
+</html>

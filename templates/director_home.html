@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Director Page - ALU Structures</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="location.href='/d_local_expenditure'">Local Expenditure</button>
+        <button class="nav-button" onclick="location.href='/d_material_purchase'">Material Purchase</button>
+        <button class="nav-button" onclick="location.href='/d_report'">Report</button>
+        <button class="nav-button" onclick="location.href='/d_manager_accounts'">Managers</button>
+        <button class="nav-button" onclick="location.href='/d_labour'">Labour</button>
+        <button class="nav-button" onclick="location.href='/d_staff_salary'">Staff Salary</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Main Heading -->
+        <h1 class="Company_Name">ALU Structures</h1>
+        
+        <!-- Subheading -->
+        <h2 class="Page_Name">Director Page</h2>
+
+        <!-- Company Logo -->
+        <img class="logo" src="{{ url_for('static', filename='company_logo.png') }}" alt="Company Logo">
+
+        <!-- Welcome Message -->
+        <h2 class="welcome-message">Welcome</h2>
+
+        <!-- User Role -->
+        <h1 class="message">General Director {{ user }}</h1>
+
+        <!-- Logout Button -->
+        <button class="button" onclick="location.href='/home'">Log Out</button>
+    </div>
+</body>
+</html>

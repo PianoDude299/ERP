@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Manager Home Page</title>
+</head>
+<body><center>
+    <div class="container" id="root">
+
+        <nav class="navbar">
+            <button class="nav-button" onclick="location.href='/m_local_expenditure'">Local Expenditure</button>
+            <button class="nav-button" onclick="location.href='/m_material_purchase'">Material Purchase</button>
+            <button class="nav-button" onclick="location.href='/m_report'">Report</button>
+            <button class="nav-button" onclick="location.href='/m_labour'">Labour</button>
+            <button class="nav-button" onclick="location.href='/m_staff_salary'">Staff-Salary</button>
+            
+        </nav>
+        <h1 class="Company_Name">ALU Structures</h1>
+        <h2 class="Page_Name">Manager Page</h2>
+        <img class="logo" src="static/company_logo.png" alt="Company Logo" class="logo"><br>
+        <h2 class="welcome-message">Welcome</h2>
+        <h1 class="message">Site {{ site }} Manager {{ user }}</h1>
+        
+        <button class="button" onclick="location.href='/home'">Log out</button>
+    </div></center>
+
+    
+</body>
+</html>
